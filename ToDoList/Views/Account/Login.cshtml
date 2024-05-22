@@ -1,0 +1,122 @@
+﻿@model ToDoList.Models.LoginViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+
+    <style>
+        body {
+            background-color: ghostwhite;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #006400;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+            .navbar a {
+                color: white;
+                text-decoration: none;
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            border: 2px solid green;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: green;
+        }
+
+        label {
+            font-weight: bold;
+            color: green;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid green;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: yellowgreen;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            button[type="submit"]:hover {
+                background-color: darkgreen;
+            }
+
+        p {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: green;
+        }
+
+        a {
+            color: green;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+        .footer {
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 2px 0;
+            font-size: 14px;
+            color: #666;
+            position:relative;
+            bottom: 10px;
+            width: 100%;
+        }
+    </style>
+ 
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form asp-action="Login" method="post">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="Username" value="@Model?.Username" required />
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="Password" required />
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="@Url.Action("Register", "Account")">Register here</a>.</p>
+    </div>
+</body>
+</html>
